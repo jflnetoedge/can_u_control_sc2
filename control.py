@@ -19,7 +19,7 @@ class Control:
   def step(self, received):
     if received:
       try:
-        print(received)
+        # print(received)
 
         land, level = received[1], received[2]
         self.upperLimit, self.lowerLimit, self.damping, self.testDepth = landsParameters(land, level)

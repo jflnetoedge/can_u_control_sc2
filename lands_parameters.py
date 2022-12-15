@@ -1,5 +1,4 @@
 from math import *
-import numpy as np
 
 def landsParameters(land, level):
   upperLimit = 1
@@ -10,7 +9,7 @@ def landsParameters(land, level):
   if land == 1:
     damping = 0.65
     if level == 1:
-      damping = 0.4
+      damping = 0.45
     if level == 3 or level == 4:
       damping = 0.35
   # Non-linearLand

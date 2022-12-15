@@ -1,5 +1,4 @@
 from math import *
-import numpy as np
 
 def landsFunctions(land, level, x, y, u):
   
@@ -31,26 +30,26 @@ def landsFunctions(land, level, x, y, u):
       y *= 10
       u *= 5
       
-      A = np.array([[0, 1], [-0.5, -0.5]])
-      B = np.array([0.5, 0.8])
+      A = [[0, 1], [-0.5, -0.5]]
+      B = [0.5, 0.8]
       
       if x > y:
-        xp = A[0, 0] * x + A[0, 1] * y + B[0] * u + 3
-        yp = A[1, 0] * x + A[1, 1] * y + B[1] * u
+        xp = A[0][0] * x + A[0][1] * y + B[0] * u + 3
+        yp = A[1][0] * x + A[1][1] * y + B[1] * u
       else:
-        xp = A[0, 0] * x + A[0, 1] * y + B[0] * u - 3.0
-        yp = A[1, 0] * x + A[1, 1] * y + B[1] * u
+        xp = A[0][0] * x + A[0][1] * y + B[0] * u - 3.0
+        yp = A[1][0] * x + A[1][1] * y + B[1] * u
       
       return [xp/3, yp/3]
     elif level == 2:
-      A = np.array([[0, -1], [-0.25, 0]])
+      A = [[0, -1], [-0.25, 0]]
 
       if x > y:
-        xp = A[0, 0] * x + A[0, 1] * y
-        yp = A[1, 0] * x + A[1, 1] * y + 2 * u
+        xp = A[0][0] * x + A[0][1] * y
+        yp = A[1][0] * x + A[1][1] * y + 2 * u
       else:
-        xp = A[0, 0] * x + A[0, 1] * y
-        yp = A[1, 0] * x + A[1, 1] * y - 2 * u
+        xp = A[0][0] * x + A[0][1] * y
+        yp = A[1][0] * x + A[1][1] * y - 2 * u
 
       return [xp, yp]
     elif level == 3:
@@ -58,14 +57,14 @@ def landsFunctions(land, level, x, y, u):
       y *= 10
       u *= 5
       
-      A = np.array([[0, -1], [1, 0]])
+      A = [[0, -1], [1, 0]]
 
       if x > y:
-        xp = A[0, 0] * x + A[0, 1] * y
-        yp = A[1, 0] * x + A[1, 1] * y + 4 + u
+        xp = A[0][0] * x + A[0][1] * y
+        yp = A[1][0] * x + A[1][1] * y + 4 + u
       else:
-        xp = A[0, 0] * x + A[0, 1] * y
-        yp = A[1, 0] * x + A[1, 1] * y - 4 + u
+        xp = A[0][0] * x + A[0][1] * y
+        yp = A[1][0] * x + A[1][1] * y - 4 + u
         
       return [xp/4, yp/4]
     elif level == 4:
@@ -73,17 +72,17 @@ def landsFunctions(land, level, x, y, u):
       y *= 10
       u *= 5
       
-      A = np.array([[0.7578, -1.9796], [1.7454, -0.3350]])
-      B = np.array([0.1005, -2.1600])
-      V = np.array([-0.1582, 1.8467])
+      A = [[0.7578, -1.9796], [1.7454, -0.3350]]
+      B = [0.1005, -2.1600]
+      V = [-0.1582, 1.8467]
       a = 1.2759
       
       if (V[0] * x + V[1] * y) > 0:
-        xp = A[0, 0] * x + A[0, 1] * y + a * B[0] * u
-        yp = A[1, 0] * x + A[1, 1] * y + a * B[1] * u
+        xp = A[0][0] * x + A[0][1] * y + a * B[0] * u
+        yp = A[1][0] * x + A[1][1] * y + a * B[1] * u
       else:
-        xp = A[0, 0] * x + A[0, 1] * y - a * B[0] * u
-        yp = A[1, 0] * x + A[1, 1] * y - a * B[1] * u
+        xp = A[0][0] * x + A[0][1] * y - a * B[0] * u
+        yp = A[1][0] * x + A[1][1] * y - a * B[1] * u
         
       return [xp/6, yp/6]
   # QuantizedLand
@@ -93,11 +92,11 @@ def landsFunctions(land, level, x, y, u):
       y *= 10
       u *= 5
       
-      A = np.array([[0, 1], [-0.5, -0.5]])
-      B = np.array([0.5, 0.8])
+      A = [[0, 1], [-0.5, -0.5]]
+      B = [0.5, 0.8]
       
-      xp = A[0, 0] * x + A[0, 1] * y + B[0] * u
-      yp = A[1, 0] * x + A[1, 1] * y + B[1] * u
+      xp = A[0][0] * x + A[0][1] * y + B[0] * u
+      yp = A[1][0] * x + A[1][1] * y + B[1] * u
       
       xp = 4 if xp > 0 else -4
       yp = 4 if yp > 0 else -4
@@ -108,11 +107,11 @@ def landsFunctions(land, level, x, y, u):
       y *= 10
       u *= 5
 
-      A = np.array([[0, -1], [1, 0]])
-      B = np.array([0, 1])
+      A = [[0, -1], [1, 0]]
+      B = [0, 1]
       
-      xp = A[0, 0] * x + A[0, 1] * y + B[0] * u
-      yp = A[1, 0] * x + A[1, 1] * y + B[1] * u
+      xp = A[0][0] * x + A[0][1] * y + B[0] * u
+      yp = A[1][0] * x + A[1][1] * y + B[1] * u
 
       if (xp > 0 and xp < 2):
           xp = 2
@@ -139,11 +138,11 @@ def landsFunctions(land, level, x, y, u):
       y *= 10
       u *= 5
 
-      A = np.array([[0, 1], [1, 0]])
-      B = np.array([0, 2])
+      A = [[0, 1], [1, 0]]
+      B = [0, 2]
       
-      xp = A[0, 0] * x + A[0, 1] * y + B[0] * u
-      yp = A[1, 0] * x + A[1, 1] * y + B[1] * u
+      xp = A[0][0] * x + A[0][1] * y + B[0] * u
+      yp = A[1][0] * x + A[1][1] * y + B[1] * u
 
       if (xp > 0 and xp < 2):
           xp = 2
